@@ -15,13 +15,22 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/prisonercreate', 'PrisonerController@create');
+Route::get('/prisoner/create', 'PrisonerController@create');
 
-Route::post('/prisonercreate', 'PrisonerController@store');
+Route::post('/prisoner/create', 'PrisonerController@store');
 
-Route::get('/prisonerview', 'PrisonerController@view');
+Route::get('/prisoner/view', 'PrisonerController@view');
 
-Route::resource('/prisoner', 'PrisonerController');
+Route::get('/prisoner/edit/{id}', "PrisonerController@edit");
+
+Route::put('/prisoner/edit/{id}', "PrisonerController@update");
+
+Route::delete('/prisoner/delete/{id}', "PrisonerController@destroy");
+
+
+
+
+// Route::resource('/prisoner', 'PrisonerController');
 
 Auth::routes();
 

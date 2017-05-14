@@ -1,4 +1,4 @@
-@extends('prisonhome')
+@extends('welcome')
 
 @section('content')
 <h3><i class="fa fa-angle-right"></i>Enroll New Prisoner</h3>
@@ -11,7 +11,7 @@
                 <div class="panel-heading">Fill in Prisoner Details</div>
                 <div class="panel-body">
                 <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data"
-                          action="/prisonercreate">
+                          action="/prisoner/create">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label class="col-md-4 control-label"> First Name</label>

@@ -37,10 +37,10 @@
               <td>{{$prisoner->height}}</td>
               <td>{{$prisoner->prisoner_mobile}}</td>
               <td>
-                <a class="btn btn-primary" href="/prisoner/{{$prisoner->id}}/edit">Edit</a>
+                <a class="btn btn-primary" href="/prisoner/edit/{{$prisoner->id}}">Edit</a>
               </td>
               <td>
-                <form class="form-horizontal" action="/prisoner/{{$prisoner->id}}" method="post">
+                <form class="form-horizontal" action="/prisoner/delete/{{$prisoner->id}}" method="post">
                   <input type="hidden" name="_token" value="{{csrf_token()}}">
                   <input type="hidden" name="_method" value="delete">
                   <button class="btn btn-danger" type="submit" name="button">Delete</button>

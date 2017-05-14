@@ -8,7 +8,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">Update Prisoner Details</div>
           <div class="panel-body">
-            <form class="form-horizontal" action="/prisoner/{{$prisoner->id}}" method="post">
+            <form class="form-horizontal" action="/prisoner/edit/{{$prisoner->id}}" method="post">
               <input type="hidden" name="_token" value="{{csrf_token()}}">
               <input type="hidden" name="_method" value="put">
 

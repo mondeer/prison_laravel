@@ -4,20 +4,10 @@ namespace prison\Http\Controllers;
 
 use Illuminate\Http\Request;
 use prison\Prisoner;
+use prison\Released_prisoner;
 
 class PrisonerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
-
     public function create()
     {
         return view('createprisoner');
@@ -48,12 +38,12 @@ class PrisonerController extends Controller
         $prisoner->height =$request->input('height');
         $prisoner->save();
 
-        return redirect('/prisonercreate')->with('prisoner', $prisoner);
+        return redirect('/prisoner/create')->with('prisoner', $prisoner);
     }
 
     public function show($id)
     {
-        //
+
     }
 
     public function view() {
@@ -75,14 +65,22 @@ class PrisonerController extends Controller
       $prisoner->next_kin = $request->input('next_kin');
       $prisoner->save();
 
-      return redirect('/prisonerview');
+      return redirect('/prisoner/view');
 
     }
 
     public function destroy($id)
     {
+
         $prisoner = Prisoner::findOrFail($id);
+        $released = array(
+         'prisoner_id'=>$prisoner->id
+         );
+
+        Released_prisoner::insert($released);
+
         $prisoner->delete();
-        return redirect('/prisonerview');
+
+        return redirect('/prisoner/view');
     }
 }
