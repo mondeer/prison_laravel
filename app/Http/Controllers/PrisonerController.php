@@ -83,4 +83,13 @@ class PrisonerController extends Controller
 
         return redirect('/prisoner/view');
     }
+
+    public function release() {
+      $prisoners = Prisoner::query();
+
+      $prisoner = Prisoner::where('national_id', $request->input('national_id'));
+
+      return view('releaseprisoner')->with('prisoner', $prisoner);s
+
+    }
 }

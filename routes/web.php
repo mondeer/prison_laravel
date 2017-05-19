@@ -27,6 +27,8 @@ Route::put('/prisoner/edit/{id}', "PrisonerController@update");
 
 Route::delete('/prisoner/delete/{id}', "PrisonerController@destroy");
 
+Route::get('/prisoner/release', 'PrisonerController@release');
+
 
 
 
